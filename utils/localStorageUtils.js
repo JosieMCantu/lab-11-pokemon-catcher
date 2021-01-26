@@ -34,7 +34,10 @@ export function incrementSeen(_id) {
             caught: 0
         };
         stats.push(newStat);
+    } else {
+        poke.seen++;
     }
+    setPokeStats(stats);
 }
 
 export function incrementCaught(_id) {

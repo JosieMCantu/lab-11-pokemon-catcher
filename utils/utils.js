@@ -15,6 +15,7 @@ export function findById(array, id) {
 }
 
 export function setThreePokemon() {
+    numberOfTurns++;
     let pokeOne = getRandomPokemon();
     let pokeTwo = getRandomPokemon();
     let pokeThree = getRandomPokemon();
@@ -45,11 +46,12 @@ export function renderPokeImage(pokemonItem) {
     image.src = pokemonItem.url_image;
     image.classList.add('poke-img');
     image.addEventListener('click', () => {
+        console.log(numberOfTurns);
         incrementCaught(pokemonItem._id);
         if (numberOfTurns < 5) {
             setThreePokemon();
         } else {
-            window.location = 'results';
+            window.location.assign('../results/index.html');
         }
     });
 
