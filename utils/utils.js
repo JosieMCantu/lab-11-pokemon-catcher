@@ -1,4 +1,7 @@
 import { pokemon } from '../data/data.js';
+import { incrementCaught, incrementSeen } from './localStorageUtils.js';
+
+let numberOfTurns = 0;
 
 export function getRandomPokemon() {
     const randomIndex = Math.floor(Math.random() * pokemon.length);
@@ -26,7 +29,13 @@ export function setThreePokemon() {
     const image2 = renderPokeImage(pokeTwo);
     const image3 = renderPokeImage(pokeThree);
 
+    incrementSeen(pokeOne._id);
+    incrementSeen(pokeTwo._id);
+    incrementSeen(pokeThree._id);
+
     const div = document.getElementById('pokemon-images');
+
+    div.textContent = '';
 
     div.append(image1, image2, image3);
 }
@@ -35,6 +44,14 @@ export function renderPokeImage(pokemonItem) {
     const image = document.createElement('img');
     image.src = pokemonItem.url_image;
     image.classList.add('poke-img');
+    image.addEventListener('click', () => {
+        incrementCaught(pokemonItem._id);
+        if (numberOfTurns < 5) {
+            setThreePokemon();
+        } else {
+            window.location = 'results';
+        }
+    });
 
     return image;
 }
