@@ -117,3 +117,11 @@ footer {
     }
 
   }
+  .poke-images {
+      display: flex;
+      flex-direction: block;
+  }
+  img {
+      height: 200px;
+      width: 200px;
+  }
