@@ -1,3 +1,5 @@
+import { findById } from '../utils/utils.js';
+import { pokemon } from '../data/data.js';
 
 export function makeSeenArray(arrayOfObjects) {
     // make an empty array
@@ -31,8 +33,10 @@ export function makeLabelsArray(arrayOfObjects) {
 
     // loop through argument array
     for (let item of arrayOfObjects) {
+        const matchingName = findById(pokemon, item._id);
         // push every name into our new array
-        nameArray.push(item._id);
+        nameArray.push(matchingName.pokemon);
+        console.log(matchingName);
     }
     // then return our new array with names
     return nameArray;
