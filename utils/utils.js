@@ -46,9 +46,8 @@ export function renderPokeImage(pokemonItem) {
     image.src = pokemonItem.url_image;
     image.classList.add('poke-img');
     image.addEventListener('click', () => {
-        console.log(numberOfTurns);
         incrementCaught(pokemonItem._id);
-        if (numberOfTurns < 5) {
+        if (numberOfTurns < 10) {
             setThreePokemon();
         } else {
             window.location.assign('../results/index.html');

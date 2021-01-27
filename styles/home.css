@@ -1,1 +1,28 @@
 /* add home page styles here */
+h1 {
+    font-size: 1.8rem;
+}
+  header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color3);
+    height: var(--header-height);
+    box-shadow: var(--shadow);
+    font-size: 36px;
+}
+  .poke-images {
+      display: flex;
+      flex-direction: block;
+  }
+  img {
+      height: 200px;
+      width: 200px;
+  }
+  table {
+      width: 600px;
+      height: 300px;
+      background-color: lavenderblush;
+  }
+  td {
+      background-color: lightcoral;
+  }

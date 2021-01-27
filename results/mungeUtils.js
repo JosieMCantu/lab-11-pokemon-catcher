@@ -25,6 +25,7 @@ export function makeCaughtArray(arrayOfObjects) {
 }
 
 export function makeLabelsArray(arrayOfObjects) {
+
     // make an empty array
     const nameArray = [];
 

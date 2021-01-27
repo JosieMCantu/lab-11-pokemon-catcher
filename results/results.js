@@ -26,18 +26,18 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, { // eslint-disable-line
     type: 'bar',
     data: {
-        labels: ['ads', 'erer', 'gdf'], // LABELS ARRAY GOES HERE
+        labels: makeLabelsArray(getStats), // LABELS ARRAY GOES HERE
         datasets: [
             {
                 label: '# of times seen',
-                data: ['2', '3', '4'], // DATA ARRAY GOES HERE
+                data: makeSeenArray(getStats), // DATA ARRAY GOES HERE
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255, 99, 132, 1)',
                 borderWidth: 2
             },
             {
                 label: '# of times caught',
-                data: ['2', '3', '4'], // DATA ARRAY GOES HERE
+                data: makeCaughtArray(getStats), // DATA ARRAY GOES HERE
                 backgroundColor: 'lightblue',
                 borderColor: 'steelblue',
                 borderWidth: 2
