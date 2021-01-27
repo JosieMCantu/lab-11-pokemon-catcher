@@ -45,13 +45,7 @@ section {
     border: solid 2px var(--color1);
 }
 
-header {
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--color3);
-    height: var(--header-height);
-    box-shadow: var(--shadow);
-}
+
 
 footer {
     display: flex;
@@ -59,35 +53,25 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
-
-
 h2 {
     font-size: 1.8rem;
     font-weight: bold;
 }
-
 .gutter-right {
-    margin-right: 20px;
+    margin: 0;
 }
-
 .main-logo {
     animation: pulse 5s infinite ease-in-out;
 }
-
 header img {
     height: var(--header-height);
 }
-
-
-
 content {
     width: 80%;
 }
-
 p {
     margin: var(--gutter);
 }
-  
 footer {
     position: fixed;
     width: 100%;
