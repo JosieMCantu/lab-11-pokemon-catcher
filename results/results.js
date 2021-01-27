@@ -1,6 +1,7 @@
 import { getPokeStats } from '../utils/localStorageUtils.js';
 import { findById } from '../utils/utils.js';
 import { renderTableRow } from './rendertbody.js';
+import { makeLabelsArray, makeSeenArray, makeCaughtArray } from './mungeUtils.js';
 
 
 // render function to get tr's and td's 
@@ -13,16 +14,6 @@ for (let item of getStats) {
     tbody.append(dom);
 }
 
-// Render tr
-const tr = document.createElement('td');
-
-// Render td's
-const tdEmpty1 = document.createElement('td');
-tr.append(tdEmpty1);
-
-const tdEmpty2 = document.createElement('td');
-tr.append(tdEmpty2);
-tbody.append(tr);
 
 const button = document.querySelector('button');
 
@@ -31,28 +22,43 @@ button.addEventListener('click', () => {
     location.href = '../index.html';
 });
 
-
-
-
 var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
+var myChart = new Chart(ctx, { // eslint-disable-line
     type: 'bar',
-
-    // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
-        }]
+        labels: ['ads', 'erer', 'gdf'], // LABELS ARRAY GOES HERE
+        datasets: [
+            {
+                label: '# of times seen',
+                data: ['2', '3', '4'], // DATA ARRAY GOES HERE
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2
+            },
+            {
+                label: '# of times caught',
+                data: ['2', '3', '4'], // DATA ARRAY GOES HERE
+                backgroundColor: 'lightblue',
+                borderColor: 'steelblue',
+                borderWidth: 2
+            },
+        ]
     },
-
-    // Configuration options go here
-    options: {}
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }],
+            // create x axis with step size 1 to show integers instead of ugly decimals
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }]
+        }
+    }
 });
-// makeSeenArray
-// makeCaughtArray
-// makeLabelsArray
